@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ matrix.repo }}
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.DREAMFLY_CICD_PAT }}
           submodules: true
 
       - name: 'Update build-config submodule'
@@ -30,7 +30,7 @@ jobs:
       - name: 'Create Pull Request with submodule update'
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.DREAMFLY_CICD_PAT }}
           commit-message: 'chore: update build-config submodule'
           title: 'Update build-config submodule'
           body: |
