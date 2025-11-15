@@ -11,9 +11,7 @@ jobs:
     strategy:
       matrix:
         repo:
-          - 'DreamFly-Airlines/bookings'
           - 'DreamFly-Airlines/payments'
-          - 'DreamFly-Airlines/auth'
 
     steps:
       - name: 'Checkout target repository: ${{ matrix.repo }}'
@@ -25,7 +23,7 @@ jobs:
 
       - name: 'Update build-config submodule'
         run: |
-          git submodule update --remote build-config
+          git submodule update --remote build
 
       - name: 'Create Pull Request with submodule update'
         uses: peter-evans/create-pull-request@v6
